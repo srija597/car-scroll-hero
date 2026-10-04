@@ -1,0 +1,200 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #d1d1d1;
+  isolation: isolate;
+}
+
+.road {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: min(27.2vh, 250px);
+  overflow: hidden;
+  transform: translateY(-50%);
+  background: #202020;
+}
+
+.road__trail {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: #45dc7c;
+  will-change: transform;
+}
+
+.road__headline {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 46%;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  color: #111;
+  font-family: sans-serif;
+  font-size: clamp(64px, 8.2vw, 128px);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+.letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.letter--space {
+  width: 0.3em;
+}
+
+.car {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  will-change: transform;
+}
+
+.stats {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3vw;
+}
+
+.stats--top {
+  top: calc(50% - 43vh + 30px);
+  right: 11vw;
+  width: min(40vw, 760px);
+}
+
+.stats--top .stat-card p {
+  text-align: left;
+}
+
+.stats--bottom {
+  top: calc(50% + 23vh - 30px);
+  right: 13.5vw;
+  width: min(43.5vw, 830px);
+}
+
+.stat-card {
+  display: flex;
+  min-height: min(20.5vh, 190px);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2.6vw 2vw 20px;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.stat-card strong {
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.stat-card p {
+  width: 100%;
+  margin: 14px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.stat-card--lime {
+  color: #151515;
+  background: #dff54f;
+}
+
+.stat-card--ink {
+  color: #fff;
+  background: #333;
+}
+
+.stat-card--blue {
+  color: #111;
+  background: #6bc8ff;
+}
+
+.stat-card--orange {
+  color: #111;
+  background: #f97328;
+}
+
+@media (max-width: 700px) {
+  .road {
+    height: 200px;
+  }
+
+  .road__headline {
+    left: 50%;
+    font-size: clamp(24px, 8vw, 64px);
+    letter-spacing: 0.002em;
+    transform: translate(-50%, -50%);
+  }
+
+  .car {
+    height: 72%;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stats--top {
+    top: calc(50% - 43vh + 30px);
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .stats--bottom {
+    top: calc(50% + 23vh - 30px);
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .stat-card {
+    min-height: 104px;
+    padding: 12px;
+  }
+
+  .stat-card p {
+    margin-top: 10px;
+    font-size: clamp(9px, 2.4vw, 14px);
+  }
+}
+
+@media (max-height: 650px) and (min-width: 701px) {
+  .stat-card {
+    min-height: 128px;
+    padding: 16px;
+  }
+
+  .stats--top {
+    top: calc(50% - 43vh + 30px);
+  }
+
+  .stats--bottom {
+    top: calc(50% + 23vh - 30px);
+  }
+}
